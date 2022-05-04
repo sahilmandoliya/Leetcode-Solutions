@@ -8,17 +8,18 @@ class Solution{
     public:
     //Function to find if there exists a triplet in the 
     //array A[] which sums up to X.
-    bool find3Numbers(int A[], int n, int X)
+    bool find3Numbers(int arr[], int n, int X)
     {
         int l,r;
-        sort(A, A+n);
+        bool canWe=false;
+        sort(arr, arr+n);
         for(int i=0;i<n-2;i++){
-            l=i+1;
-            r=n-1;
+            int l=i+1;
+            int r=n-1;
             while(l<r){
-                if(A[i]+A[l] + A[r]==X){
+                if(arr[i]+arr[l]+arr[r]==X){
                     return true;
-                }else if(A[i]+A[l] + A[r]<X){
+                }else if(arr[i]+arr[l]+arr[r]<X){
                     l++;
                 }else{
                     r--;
