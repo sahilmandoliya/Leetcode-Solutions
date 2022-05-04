@@ -1,5 +1,5 @@
 # Triplet Sum in Array
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array arr of size n and an integer X. Find if there's a triplet in the array which sums up to the given integer X. </span></p>
 
