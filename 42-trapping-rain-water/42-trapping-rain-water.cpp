@@ -6,24 +6,24 @@ public:
         int right=n-1;
         int leftmax=0;
         int rightmax=0;
-        int ans=0;
+        int res=0;
         while(left<=right){
             if(height[left]<=height[right]){
-                if(height[left]>=leftmax){
+                if(height[left]>leftmax){
                     leftmax=height[left];
                 }else{
-                    ans+=leftmax-height[left];
+                    res+=leftmax-height[left];
                 }
                 left++;
-            }else {
+            }else{
                 if(height[right]>=rightmax){
                     rightmax=height[right];
                 }else{
-                    ans+=rightmax-height[right];
+                    res+=rightmax-height[right];
                 }
                 right--;
             }
         }
-        return ans;
+        return res;
     }
 };
