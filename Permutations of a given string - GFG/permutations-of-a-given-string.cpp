@@ -6,22 +6,27 @@ using namespace std;
 class Solution
 {
 	public:
-	    void solve(set<string> &temp, string s, int index){
-	        if(index==s.length()){
-	            temp.insert(s);
-	            return ;
+	    vector<string> store;
+	    void solve(map<char,int> &mp,int pos,string res,int n){
+	        if(pos==n){
+	            store.push_back(res);
+	            return;
 	        }
-	        for(int i=index; i<s.length();i++){
-	            swap(s[index], s[i]);
-	            solve(temp, s, index+1);
-	            swap(s[index], s[i]);
+	        for(auto m:mp){
+	            if(m.second>0){
+	                mp[m.first]--;
+	                string s=res + m.first;
+	                solve(mp,pos+1,s,n);
+	                mp[m.first]++;
+	            }
 	        }
 	    }
-		vector<string>find_permutation(string S){
-		    set<string> temp;
-		    solve(temp, S, 0);
-		    vector<string> res(temp.begin(), temp.end());
-		    return res;
+	    
+		vector<string>find_permutation(string s){
+		    map<char,int> mp;
+		    for(char c:s) mp[c]++;
+		    solve(mp,0,"",s.size());
+		    return store;
 		}
 };
 
